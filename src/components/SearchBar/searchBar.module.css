@@ -1,0 +1,35 @@
+.div {
+  /* display: inline-block;
+  position: relative;*/
+  border: thin whitesmoke solid;
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.buton {
+  /*width: 10%;
+  margin: 10px;*/
+
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+  color: #a7cb54;
+  background-color: #262424;
+  padding: 2px 10px;
+  margin: 2px 10px;
+}
+
+.buton:hover {
+  background-color: #adef9e;
+  color: #0d0d0d;
+}
+
+.input {
+  border-radius: 3px;
+  padding: 0.2px;
+  margin: 2px 10px;
+}
