@@ -5,9 +5,16 @@ export default function Cards(props) {
 
   return (
     <div>
-      {characters.map(({ name, species, gender, image }) => {
+      {characters.map(({ name, species, gender, image, id }) => {
         return (
-          <Card name={name} species={species} gender={gender} image={image} />
+          <Card
+            name={name}
+            species={species}
+            gender={gender}
+            image={image}
+            key={id}
+            onClose={() => props.onClose(id)}
+          />
         );
       })}
     </div>
