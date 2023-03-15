@@ -5,6 +5,7 @@ import style from "./detail.module.css";
 const Detail = () => {
   const { detailId } = useParams();
   const [character, setCharacter] = useState("");
+  console.log(character);
   useEffect(() => {
     const URL_BASE = "https://be-a-rym.up.railway.app/api";
     const API_KEY = "90cc495ecaad.7dff8a6963967723f2f6";
@@ -22,24 +23,31 @@ const Detail = () => {
       });
     return setCharacter({});
   }, [detailId]);
+
   return (
-    <>
-      <div className={style.all}>
-        <div className={style.data}>
-          <h1 className={style.name}>Name: {character?.name}</h1>
-          <h2 className={style.info}>Status: {character?.status}</h2>
-          <h2 className={style.info}>Species: {character?.species}</h2>
-          <h2 className={style.info}>Gender: {character?.gender}</h2>
-          {/* <h2 className={style.info}>Origen: {character?.origen}</h2>*/}
+    <div>
+      {character.name ? (
+        <div>
+          <div className={style.all}>
+            <div className={style.data}>
+              <h1 className={style.name}>Name: {character?.name}</h1>
+              <h2 className={style.info}>Status: {character?.status}</h2>
+              <h2 className={style.info}>Species: {character?.species}</h2>
+              <h2 className={style.info}>Gender: {character?.gender}</h2>
+              <h2 className={style.info}>Origen: {character?.origin?.name}</h2>
+            </div>
+            <div className={style.rigth}>
+              <img src={character?.image} alt={character?.name} />
+            </div>
+          </div>
+          <Link to="/home">
+            <button className={style.button}>Home</button>
+          </Link>
         </div>
-        <div className={style.rigth}>
-          <img src={character?.image} alt={character?.name} />
-        </div>
-      </div>
-      <Link to="/home">
-        <button className={style.button}>Home</button>
-      </Link>
-    </>
+      ) : (
+        <h3 className={style.loading}>Loading...</h3>
+      )}
+    </div>
   );
 };
 export default Detail;

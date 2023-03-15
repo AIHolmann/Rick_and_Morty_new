@@ -12,10 +12,15 @@ function App() {
   const onSearch = (character) => {
     const URL_BASE = "https://be-a-rym.up.railway.app/api";
     const API_KEY = "90cc495ecaad.7dff8a6963967723f2f6";
+
+    if (characters.find((char) => char.id === character)) {
+      return alert("Personaje repetido");
+    }
+
     fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data.name && !characters.find((char) => char.id === data.id)) {
+        if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
           window.alert("Algo salio mal");

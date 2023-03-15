@@ -76,6 +76,7 @@ display: flex;
   transition: 0.2s ease-in-out;
   text-transform: uppercase;
   padding: 1rem;
+  border: 2px solid black;
 }
 .button:hover {
   background-color: #159897;
@@ -83,4 +84,11 @@ display: flex;
   color: black;
   font-size: 18px;
   text-shadow: 1px 1px 3px black;
+}
+
+.loading {
+  font-size: 45px;
+  color: blanchedalmond;
+  margin: 50px;
+  margin-top: 80px;
 }

@@ -15,6 +15,7 @@
   border: 2px black solid;
   flex-wrap: wrap;
   box-sizing: border-box;
+  margin: 3px;
 }
 
 .text {
@@ -49,9 +50,24 @@
   transition: 0.2s ease-in-out;
   text-transform: uppercase;
   padding: 0.8em 1em;
+  border: 2px solid black;
 }
 .button:hover {
   background-color: #a7cb54;
   cursor: pointer;
   color: #0d0d0d;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.name {
+  transition: 0.1s ease-in-out;
+}
+
+.name:hover {
+  filter: drop-shadow(0px 7px 21px rgba(127, 72, 182));
+  font-size: 28px;
+  color: rgb(252, 216, 169);
 }
