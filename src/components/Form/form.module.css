@@ -1,0 +1,6 @@
+.div {
+  border: 1px solid red;
+  background-color: rgba(64, 134, 226, 0.4);
+  padding: 50px;
+  margin: 50px;
+}
