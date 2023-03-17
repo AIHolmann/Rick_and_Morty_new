@@ -24,6 +24,11 @@ export default function SearchBar(props) {
           About
         </Link>
       </div>
+      <div className={style.buton}>
+        <Link to={"/favorites"} className={style.ln}>
+          Favorites
+        </Link>
+      </div>
       <div>
         <label>🔎</label>
         <input type="search" className={style.input} onChange={handleInput} />
