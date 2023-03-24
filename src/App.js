@@ -1,4 +1,4 @@
-import "./App.css";
+import style from "./App.module.css";
 import Cards from "./components/Cards/Cards.jsx";
 import { useEffect, useState } from "react";
 import Nav from "./components/Nav/Nav";
@@ -54,7 +54,7 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ padding: "25px" }}>
+    <div className={style.App}>
       {pathname !== "/" && <Nav onSearch={onSearch} />}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
@@ -83,6 +83,8 @@ Ahora te desafiamos a que crees un nuevo componente llamado **Error**. A este co
 El desafío es el siguiente: haz que este componente se muestre cada vez que el usuario ingrese a cualquier otra ruta que no exista. Es decir que no la hayas especificado en esta homework. Por ejemplo, si creaste una ruta "`/home`" y "`/about`", y el usuario en el navegador escribe y "`/henry`", debería mostrar el error 404.
 
 Si se vuelve a cargar el form access debe ser false. Logout button. Arreglar validaciones.
+
+Terminar Estilos favorites.jsx y form.jsx
 
 
 */

@@ -14,28 +14,15 @@ export default function SearchBar(props) {
 
   return (
     <div className={style.div}>
-      <div className={style.buton}>
-        <Link to={"/home"} className={style.ln}>
-          Home
-        </Link>
-      </div>
-      <div className={style.buton}>
-        <Link to={"/about"} className={style.ln}>
-          About
-        </Link>
-      </div>
-      <div className={style.buton}>
-        <Link to={"/favorites"} className={style.ln}>
-          Favorites
-        </Link>
-      </div>
       <div>
         <label>🔎</label>
         <input type="search" className={style.input} onChange={handleInput} />
       </div>
-      <button className={style.buton} onClick={handleButton}>
-        Agregar
-      </button>
+      <div className={style.divButon}>
+        <button className={style.buton} onClick={handleButton}>
+          Agregar
+        </button>
+      </div>
     </div>
   );
 }

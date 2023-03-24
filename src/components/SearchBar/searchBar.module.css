@@ -6,8 +6,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   align-content: space-between;
+}
+
+.divButon {
 }
 
 .buton {
@@ -19,8 +22,8 @@
   transition: 0.2s ease-in-out;
   color: #a7cb54;
   background-color: #262424;
-  padding: 2px 10px;
-  margin: 2px 10px;
+  padding-top: -5px;
+  margin: 2px 5px;
 }
 
 .buton:hover {
@@ -31,9 +34,9 @@
 .input {
   border-radius: 5px;
   padding: 0.2px;
-  margin: 2px 10px;
+  margin: 2px 5px;
 }
-
+/*
 .ln {
   text-decoration: none;
   color: #a7cb54;
@@ -44,3 +47,4 @@
 .ln:hover {
   color: #0d0d0d;
 }
+*/

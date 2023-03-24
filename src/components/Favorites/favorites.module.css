@@ -1,0 +1,11 @@
+.container {
+  margin-left: 20px;
+  margin-right: 20px;
+  box-shadow: 16px 14px 20px #0000008c;
+  transition: 0.9s ease-in-out;
+}
+
+.container:hover {
+  box-shadow: 16px 14px 20px #1292a68c;
+  border: 32px solid #1292a68c;
+}

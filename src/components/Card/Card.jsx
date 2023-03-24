@@ -31,9 +31,13 @@ function Card(props) {
     <div className={style.card}>
       <div className={style.contButt}>
         {isFav ? (
-          <button onClick={handleFavorite}>❤️</button>
+          <button onClick={handleFavorite} className={style.fav}>
+            ❤️
+          </button>
         ) : (
-          <button onClick={handleFavorite}>🤍</button>
+          <button onClick={handleFavorite} className={style.fav}>
+            🤍
+          </button>
         )}
         <img src={props.image} alt={props.name} />
         <button onClick={props.onClose} className={style.button}>

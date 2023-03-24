@@ -1,13 +1,14 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
+import style from "./favorites.module.css";
 
 const Favorites = () => {
   const favorites = useSelector((state) => state.myFavorites);
 
   return (
-    <div>
-      <h2>Favoritos:</h2>
+    <div className={style.container}>
+      <h2>Favorites:</h2>
       {favorites.map(({ name, species, gender, image, id }) => {
         return (
           <Card

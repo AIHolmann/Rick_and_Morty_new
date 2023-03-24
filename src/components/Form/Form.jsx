@@ -1,6 +1,7 @@
 import { useState } from "react";
 import style from "./form.module.css";
 import validation from "./validation";
+import { Link } from "react-router-dom";
 
 const Form = ({ login }) => {
   const [userdata, setUserdata] = useState({
@@ -34,32 +35,85 @@ const Form = ({ login }) => {
     login(userdata);
   };
 
-  return (
-    <div className={style.div}>
-      <form onSubmit={submitHandler}>
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username..."
-          value={userdata.username}
-          onChange={handleInputChange}
-        />
-        {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
-        <br />
+  const handleError = () => {
+    alert("Todavia estamos trabajando en ello, pronto estará disponible");
+  };
 
-        <label htmlFor="password">Password: </label>
-        <input
-          type="text"
-          name="password"
-          placeholder="Password..."
-          value={userdata.pass}
-          onChange={handleInputChange}
-        />
-        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-        <br />
-        <button type="submit">Enviar</button>
-      </form>
+  return (
+    <div className={style.bigdiv}>
+      <div className={style.contFoto}>
+        <div className={style.logo}></div>
+      </div>
+      <section className={style.section}>
+        <div className={style.form_box}>
+          <div className={style.form_value}>
+            <form onSubmit={submitHandler}>
+              <h2>Login</h2>
+              <div className={style.inputbox}>
+                <span>✉</span>
+                <input
+                  type="text"
+                  name="username"
+                  value={userdata.username}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label htmlFor="username">Username</label>
+              </div>
+
+              <div className={style.inputbox}>
+                <span>⊗</span>
+                <input
+                  type="password"
+                  name="password"
+                  value={userdata.pass}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label htmlFor="password">Password</label>
+              </div>
+              <div className={style.forget}>
+                <label htmlFor="">
+                  <input type="checkbox" />
+                  Remember Me
+                  <span onClick={handleError}> Forget Password</span>
+                </label>
+              </div>
+              <button type="submit">Log in</button>
+              <div className={style.register}>
+                <p>
+                  Don't have a account
+                  <span onClick={handleError}> Register</span>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+        {errors.username && (
+          <p
+            style={{
+              color: "red",
+              fontSize: "1rem",
+              borderBottom: "solid red 1px",
+              marginTop: "5px",
+            }}
+          >
+            {errors.username}
+          </p>
+        )}
+        {errors.password && (
+          <p
+            style={{
+              color: "red",
+              fontSize: "1.1rem",
+              borderBottom: "solid red 1px",
+              marginTop: "5px",
+            }}
+          >
+            {errors.password}
+          </p>
+        )}
+      </section>
     </div>
   );
 };
