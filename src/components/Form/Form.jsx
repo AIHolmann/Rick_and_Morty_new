@@ -75,15 +75,15 @@ const Form = ({ login }) => {
               <div className={style.forget}>
                 <label htmlFor="">
                   <input type="checkbox" />
-                  Remember Me
-                  <span onClick={handleError}> Forget Password</span>
+                  Remember me.
+                  <span onClick={handleError}>Forget Password</span>
                 </label>
               </div>
               <button type="submit">Log in</button>
               <div className={style.register}>
                 <p>
-                  Don't have a account
-                  <span onClick={handleError}> Register</span>
+                  Don't have a account.
+                  <span onClick={handleError}>Register</span>
                 </p>
               </div>
             </form>

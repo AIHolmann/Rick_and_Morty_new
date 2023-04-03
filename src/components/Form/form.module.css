@@ -114,6 +114,7 @@ input:valid ~ label {
 .forget label span {
   color: #fff;
   text-decoration: none;
+  margin-left: 10px;
 }
 
 .forget label span:hover {
@@ -143,6 +144,7 @@ button {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
+  margin-left: 6px;
 }
 
 .register p span:hover {

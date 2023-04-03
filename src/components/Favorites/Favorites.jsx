@@ -8,21 +8,29 @@ const Favorites = () => {
 
   return (
     <div className={style.container}>
-      <h2>Favorites:</h2>
-      {favorites.map(({ name, species, gender, image, id }) => {
-        return (
-          <Card
-            name={name}
-            species={species}
-            gender={gender}
-            image={image}
-            key={id}
-            id={id}
-            // onClose={() => onClose(id)}
-          />
-        );
-      })}
-      <Link to={"/home"}>Home</Link>
+      <div>
+        <h2 className={style.tittle}>Favorites:</h2>
+      </div>
+      <div>
+        {favorites.map(({ name, species, gender, image, id }) => {
+          return (
+            <Card
+              name={name}
+              species={species}
+              gender={gender}
+              image={image}
+              key={id}
+              id={id}
+              // onClose={() => onClose(id)}
+            />
+          );
+        })}
+      </div>
+      <div className={style.contLink}>
+        <Link to={"/home"} className={style.link}>
+          Home
+        </Link>
+      </div>
     </div>
   );
 };

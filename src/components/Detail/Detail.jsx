@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import style from "./detail.module.css";
+import loading from "../../assets/loading.gif";
 
 const Detail = () => {
   const { detailId } = useParams();
   const [character, setCharacter] = useState("");
-  console.log(character);
+
   useEffect(() => {
     const URL_BASE = "https://be-a-rym.up.railway.app/api";
     const API_KEY = "90cc495ecaad.7dff8a6963967723f2f6";
@@ -43,9 +44,13 @@ const Detail = () => {
           <Link to="/home">
             <button className={style.button}>Home</button>
           </Link>
+          <></>
         </div>
       ) : (
-        <h3 className={style.loading}>Loading...</h3>
+        <>
+          <h3 className={style.loading}>Loading...</h3>
+          <img className={style.img} src={loading} alt="Rick and Morty..." />
+        </>
       )}
     </div>
   );
