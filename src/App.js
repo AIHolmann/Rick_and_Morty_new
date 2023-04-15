@@ -23,7 +23,8 @@ function App() {
 
   const onSearch = (character) => {
     const URL_BASE = "https://be-a-rym.up.railway.app/api";
-    const API_KEY = "90cc495ecaad.7dff8a6963967723f2f6";
+    const API_KEY = "c395dad0332a.8d708b70481a02f64ec4";
+    // const API_KEY = "90cc495ecaad.7dff8a6963967723f2f6";
 
     if (characters.find((char) => char.id === character)) {
       return alert("Personaje repetido");
@@ -82,7 +83,9 @@ Generar un botón en la navbar que agregue un personaje random (Hint: hay 826 pe
 Ahora te desafiamos a que crees un nuevo componente llamado **Error**. A este componente le podrás dar los estilos que quieras, pero la idea es que se muestre un mensaje de error 404.
 El desafío es el siguiente: haz que este componente se muestre cada vez que el usuario ingrese a cualquier otra ruta que no exista. Es decir que no la hayas especificado en esta homework. Por ejemplo, si creaste una ruta "`/home`" y "`/about`", y el usuario en el navegador escribe y "`/henry`", debería mostrar el error 404.
 
-Si se vuelve a cargar el form access debe ser false. Logout button. Arreglar validaciones.
+Si se vuelve a cargar el form access debe ser false. 
+Logout button. 
+Arreglar validaciones.
 
 Terminar Estilos favorites.jsx y form.jsx
 
