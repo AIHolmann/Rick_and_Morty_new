@@ -24,7 +24,6 @@ function App() {
   const onSearch = (character) => {
     const URL_BASE = "https://be-a-rym.up.railway.app/api";
     const API_KEY = "c395dad0332a.8d708b70481a02f64ec4";
-    // const API_KEY = "90cc495ecaad.7dff8a6963967723f2f6";
 
     if (characters.find((char) => char.id === character)) {
       return alert("Personaje repetido");
@@ -56,7 +55,7 @@ function App() {
 
   return (
     <div className={style.App}>
-      {pathname !== "/" && <Nav onSearch={onSearch} />}
+      {pathname !== "/" && <Nav onSearch={onSearch} setAccess={setAccess} />}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
         <Route path="/about" element={<About />} />

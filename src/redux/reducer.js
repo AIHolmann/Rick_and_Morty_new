@@ -1,7 +1,8 @@
-import { AGREGAR_FAV, ELIMINAR_FAV } from "./actions";
+import { AGREGAR_FAV, ELIMINAR_FAV, FILTER, ORDER } from "./action-types";
 
 const initialState = {
   myFavorites: [],
+  allCharacters: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -9,17 +10,43 @@ function rootReducer(state = initialState, action) {
     case AGREGAR_FAV: {
       return {
         ...state,
-        myFavorites: [...state.myFavorites, action.payload],
+        myFavorites: [...state.allCharacters, action.payload],
+        allCharacters: [...state.allCharacters, action.payload],
       };
     }
     case ELIMINAR_FAV: {
       return {
         ...state,
-        myFavorites: [
-          state.myFavorites.filter((fav) => fav.id !== action.payload),
-        ],
+        myFavorites: state.myFavorites.filter(
+          (fav) => fav.id !== action.payload
+        ),
       };
     }
+
+    case FILTER: {
+      const allCharactersFiltered = state.allCharacters.filter(
+        (char) => char.gender === action.payload
+      );
+      return {
+        ...state,
+        myFavorites:
+          action.payload === "allCharacters"
+            ? [...state.allCharacters]
+            : allCharactersFiltered,
+      };
+    }
+
+    case ORDER: {
+      const allCharactersFavCopy = [...state.allCharacters];
+      return {
+        ...state,
+        myFavorites:
+          action.payload === "A"
+            ? allCharactersFavCopy.sort((a, b) => a.id - b.id)
+            : allCharactersFavCopy.sort((a, b) => b.id - a.id),
+      };
+    }
+
     default:
       return { ...state };
   }
