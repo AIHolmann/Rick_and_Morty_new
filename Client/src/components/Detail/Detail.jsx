@@ -8,9 +8,11 @@ const Detail = () => {
   const [character, setCharacter] = useState("");
 
   useEffect(() => {
-    const URL_BASE = "https://be-a-rym.up.railway.app/api";
-    const API_KEY = "c395dad0332a.8d708b70481a02f64ec4";
-    fetch(`${URL_BASE}/character/${detailId}?key=${API_KEY}`)
+    //  const URL_BASE = "https://be-a-rym.up.railway.app/api";
+    const URL_BASE = `http://localhost:3001/rickandmorty/character/${detailId}`;
+    // const API_KEY = "c395dad0332a.8d708b70481a02f64ec4";
+    // fetch(`${URL_BASE}/character/${detailId}?key=${API_KEY}`)
+    fetch(URL_BASE)
       .then((response) => response.json())
       .then((char) => {
         if (char.name) {

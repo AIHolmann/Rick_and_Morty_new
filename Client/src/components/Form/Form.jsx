@@ -1,7 +1,6 @@
 import { useState } from "react";
 import style from "./form.module.css";
 import validation from "./validation";
-import { Link } from "react-router-dom";
 
 const Form = ({ login }) => {
   const [userdata, setUserdata] = useState({

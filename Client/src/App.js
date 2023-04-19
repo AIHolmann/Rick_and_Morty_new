@@ -22,14 +22,16 @@ function App() {
   const password = "qwerty123";
 
   const onSearch = (character) => {
-    const URL_BASE = "https://be-a-rym.up.railway.app/api";
-    const API_KEY = "c395dad0332a.8d708b70481a02f64ec4";
+    // const URL_BASE = "https://be-a-rym.up.railway.app/api";
+    const URL_BASE = `http://localhost:3001/rickandmorty/character/${character}`;
+    //const API_KEY = "c395dad0332a.8d708b70481a02f64ec4";
 
     if (characters.find((char) => char.id === character)) {
       return alert("Personaje repetido");
     }
 
-    fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
+    // fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
+    fetch(URL_BASE)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
