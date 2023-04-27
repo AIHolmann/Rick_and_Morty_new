@@ -7,12 +7,29 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
+import axios from "axios";
 
+const URL = "http://localhost:3001/rickandmorty/login/";
 function App() {
   const [characters, setCharacters] = useState([]);
   const { pathname } = useLocation();
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
+
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   useEffect(() => {
     !access && navigate("/");
@@ -21,38 +38,23 @@ function App() {
   const username = "alejoholmann@mail.com";
   const password = "qwerty123";
 
-  const onSearch = (character) => {
-    // const URL_BASE = "https://be-a-rym.up.railway.app/api";
-    const URL_BASE = `http://localhost:3001/rickandmorty/character/${character}`;
-    //const API_KEY = "c395dad0332a.8d708b70481a02f64ec4";
+  const onSearch = async (character) => {
+    try {
+      const URL_BASE = `http://localhost:3001/rickandmorty/character/${character}`;
 
-    if (characters.find((char) => char.id === character)) {
-      return alert("Personaje repetido");
+      if (characters.find((char) => char.id === character)) {
+        return alert("Personaje repetido");
+      }
+
+      const { data } = await axios(URL_BASE);
+      if (data.name) setCharacters((oldChars) => [...oldChars, data]);
+    } catch (error) {
+      return window.alert("Algo salio mal");
     }
-
-    // fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
-    fetch(URL_BASE)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("Algo salio mal");
-        }
-      });
   };
 
   const onClose = (id) => {
     setCharacters(characters.filter((character) => character.id !== id));
-  };
-
-  const login = (userdata) => {
-    if (userdata.username === username && userdata.password === password) {
-      setAccess(true);
-      navigate("/home");
-    } else {
-      window.alert("Credenciales incorrectas");
-    }
   };
 
   return (

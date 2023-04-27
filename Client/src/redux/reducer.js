@@ -10,16 +10,15 @@ function rootReducer(state = initialState, action) {
     case AGREGAR_FAV: {
       return {
         ...state,
-        myFavorites: [...state.allCharacters, action.payload],
-        allCharacters: [...state.allCharacters, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
     }
     case ELIMINAR_FAV: {
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(
-          (fav) => fav.id !== action.payload
-        ),
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
     }
 

@@ -4,12 +4,12 @@ import validation from "./validation";
 
 const Form = ({ login }) => {
   const [userdata, setUserdata] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
   const [errors, setErrors] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -52,12 +52,12 @@ const Form = ({ login }) => {
                 <span>✉</span>
                 <input
                   type="text"
-                  name="username"
-                  value={userdata.username}
+                  name="email"
+                  value={userdata.email}
                   onChange={handleInputChange}
                   required
                 />
-                <label htmlFor="username">Username</label>
+                <label htmlFor="email">Username</label>
               </div>
 
               <div className={style.inputbox}>
@@ -88,7 +88,7 @@ const Form = ({ login }) => {
             </form>
           </div>
         </div>
-        {errors.username && (
+        {errors.email && (
           <p
             style={{
               color: "red",
@@ -97,7 +97,7 @@ const Form = ({ login }) => {
               marginTop: "5px",
             }}
           >
-            {errors.username}
+            {errors.email}
           </p>
         )}
         {errors.password && (
