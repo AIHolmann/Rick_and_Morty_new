@@ -6,25 +6,37 @@ export const ELIMINAR_FAV = "ELIMINAR_FAV";
 
 export const agregarFav = (character) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
-  return (dispatch) => {
-    axios.post(endpoint, character).then(({ data }) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.post(endpoint, character);
+
+      if (!data.length) throw Error("No hay favoritos");
+
       return dispatch({
         type: AGREGAR_FAV,
         payload: data,
       });
-    });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 };
 
 export const eliminarFav = (id) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
-  return (dispatch) => {
-    axios.delete(endpoint).then(({ data }) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(endpoint);
+
+      //  if (!data.length) throw Error("No hay favoritos");
+
       return dispatch({
         type: ELIMINAR_FAV,
         payload: data,
       });
-    });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 };
 
